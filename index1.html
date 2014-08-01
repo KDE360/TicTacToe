@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<title>tictactoe</title>
+		
+		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+		
+		<!-- Firebase script-->
+		<script type="text/javascript" src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
+		<script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+
+		<meta charset="UTF-8">
+		<link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="style.css">
+
+	</head>
+	<body ng-controller="boardController">
+		<header>
+			<!-- need to restyle this -->
+			<div>
+				tictactoeeeeeee
+
+			</div>
+		</header>
+		<div id="game">
+			<div class="board">
+				<div id="cell{{$index}}" x-ng-repeat="box in boxes track by $index" 
+				x-ng-class="{cell:true, clear: $index % 3 == 0}" x-ng-click="xoTurn($index)">{{box}}
+				<!--clear: $index % 3 == 0}" (ng-class) - use to clear boxes after reset button is clicked -->
+				</div>
+
+				<div class="message">
+					{{winMsg}} 
+					<button id="button" x-ng-click="resetGame()">Play Again</button>
+				</div>
+				<div class="message">
+					 {{tieMsg}}
+					<button id="button" x-ng-click="resetGame()">Play Again</button>
+				</div>
+			</div>
+			<div id="player1" class="player"><span class="pxo">Player 1</span><br /><span id="score_x">{{p1Score}}</span></div>
+			<div id="player2" class="player"><span  class="pxo">Player 2</span><br /><span id="score_o">{{p2core}}</span></div>
+		</div>
+
+
+
+	</body>
+</html>
